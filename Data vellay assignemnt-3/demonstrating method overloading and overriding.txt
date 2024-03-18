@@ -1,0 +1,39 @@
+class Parent {
+    // Method Overloading
+    public void display() {
+        System.out.println("Inside Parent's display method");
+    }
+
+    // Method Overriding
+    public void print() {
+        System.out.println("Inside Parent's print method");
+    }
+}
+
+class Child extends Parent {
+    // Method Overriding
+    @Override
+    public void print() {
+        System.out.println("Inside Child's print method");
+    }
+
+    // Method Overloading
+    public void display(String message) {
+        System.out.println("Inside Child's display method with message: " + message);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Method Overriding
+        Parent parent = new Parent();
+        parent.print();  // Output: Inside Parent's print method
+
+        Child child = new Child();
+        child.print();   // Output: Inside Child's print method
+
+        // Method Overloading
+        child.display();              // Output: Inside Parent's display method
+        child.display("Hello!");     // Output: Inside Child's display method with message: Hello!
+    }
+}
